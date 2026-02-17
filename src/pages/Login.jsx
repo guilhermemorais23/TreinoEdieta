@@ -38,8 +38,10 @@ export default function Login() {
       if (err.response?.status === 400) {
         setErrorDetails(`Status 400 - Dados inválidos. Verifique se o backend espera esses campos.`);
       } else if (err.code === 'ERR_NETWORK') {
-        setErrorDetails("Erro de rede - Backend pode estar desligado na porta 3000");
-      }
+  setErrorDetails("Erro de rede - falha ao conectar com API em produção");
+}
+
+
     } finally {
       setLoading(false);
     }
