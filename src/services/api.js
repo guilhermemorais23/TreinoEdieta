@@ -1,13 +1,11 @@
-import axios from 'axios';
-
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://treino-e-dieta-wjj9.onrender.com",
   timeout: 60000
 });
 
-// Interceptor para adicionar token em cada requisição
+// Interceptor para adicionar token
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -16,7 +14,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor para tratamento de erros
+// Interceptor de erro
 api.interceptors.response.use(
   (response) => response,
   (error) => {
